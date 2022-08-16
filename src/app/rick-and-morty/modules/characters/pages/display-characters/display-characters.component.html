@@ -35,7 +35,6 @@
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title><b>{{character.name}}</b>
-                        <!-- <b class="pointer" (onclick)="goToCharacter(character.url)">{{character.name}}</b> -->
                     </mat-card-title>
                     <mat-card-subtitle><b>{{character.species}}</b></mat-card-subtitle>
                 </mat-card-header>
@@ -44,15 +43,14 @@
                     Gender: <b>{{character.gender}}</b><br>
                     Origin: <b>{{character.origin.name}}</b><br>
                     Last known location: <b>{{character.location.name}}</b><br>
-                        <!-- <b class="pointer"
-                        (onclick)="goToCharacter(character.location.url)">{{character.location.name}}</b> -->
                 </mat-card-content>
             </mat-card>
         </div>
     </mat-card-content>
     <mat-card-actions>
+        <!-- Botones para mover el paginados -->
         <mat-divider class="mt10"></mat-divider>
-        <div class="mt10" fxLayout="row" >
+        <div class="mt10" fxLayout="row">
             <button class="allignButton"  mat-raised-button color="primary" [disabled]="!characterInfo?.prev || !(characters.length > 0)" (click)="changePage(-20)"><mat-icon>navigate_before</mat-icon>Previous</button>
             <span class="spacer"></span>
             <button class="allignButton" mat-raised-button color="primary"  [disabled]="!characterInfo?.next || !(characters.length > 0)" (click)="changePage(20)">Next <mat-icon>navigate_next</mat-icon></button>

@@ -23,7 +23,7 @@ export class DisplayEpisodesComponent implements OnInit {
   ngOnInit(): void {
     this.loadEpisodes(0);
   }
-
+//Cargar los episodios en base a si hay algo en el search y la paginación
   loadEpisodes(nextPage: number) {
     const searchtext: string = this.searchtxt?.nativeElement.value || "";
     if (this.from == 0) {
@@ -60,15 +60,15 @@ export class DisplayEpisodesComponent implements OnInit {
               this.loadingEpisodes = false;
             }
         });
-      }
+      }//Si hay una página adelante, la carga
     } else if (nextPage > 0 && this.episodesInfo!.next) {
       this.loadPaginatedEpisodes(this.episodesInfo!.next);
-    }
+    }//Si hay una página atras, la carga
     else if (nextPage < 0 && this.episodesInfo!.prev) {
       this.loadPaginatedEpisodes(this.episodesInfo!.prev);
     }
   }
-
+//función para cargar en base a la paginación
   loadPaginatedEpisodes(url: string) {
     this.loadingEpisodes = true;
     this.es.getPaginatedEpisodes(url).subscribe(
@@ -79,7 +79,7 @@ export class DisplayEpisodesComponent implements OnInit {
         this.loadingEpisodes = false;
       });
   }
-
+//Función que se ejecuta al tocar los botones de cambio de página
   changePage(value: number) {
     this.from += value;
     if (this.from < 0) {
@@ -90,7 +90,7 @@ export class DisplayEpisodesComponent implements OnInit {
     this.loadEpisodes(value);
   }
 
-
+//Función del search cada que se teclea en el input
   search() {
     if (this.searchtxt?.nativeElement.value.length === 0) {
       this.episodes = this.episodesTemp;
@@ -100,6 +100,4 @@ export class DisplayEpisodesComponent implements OnInit {
     return;
   }
 
-  goToEpisode(episodeUrl: string) {
-  }
 }

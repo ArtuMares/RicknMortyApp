@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
     this.getLatestEpisodes();
   }
 
+
   getMainCharacters() {
     this.cs.getPrincipalCharacters().subscribe(characters => {
       this.mainCharacters = characters;
@@ -85,14 +86,5 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  goToCharacter(character: string) {
-
-  }
-  goToEpisode(episode: string) {
-
-  }
-  goToLocation(location: string){
-
-  }
-
+ 
 }

@@ -23,7 +23,7 @@ export class DisplayLocationsComponent implements OnInit {
   ngOnInit(): void {
     this.loadLocations(0);
   }
-
+  //Cargar las localizaciones en base a si hay algo en el search y la paginación
   loadLocations(nextPage: number) {
     const searchtext: string = this.searchtxt?.nativeElement.value || "";
     if (this.from == 0) {
@@ -60,15 +60,15 @@ export class DisplayLocationsComponent implements OnInit {
               this.loadingLocations = false;
             }
         });
-      }
+      }//Si hay una página adelante, la carga
     } else if (nextPage > 0 && this.locationsInfo!.next) {
       this.loadPaginatedLocations(this.locationsInfo!.next);
-    }
+    }     //Si hay una página atras, la carga
     else if (nextPage < 0 && this.locationsInfo!.prev) {
       this.loadPaginatedLocations(this.locationsInfo!.prev);
     }
   }
-
+  //función para cargar en base a la paginación
   loadPaginatedLocations(url: string) {
     this.loadingLocations = true;
     this.ls.getPaginatedLocations(url).subscribe(
@@ -79,7 +79,7 @@ export class DisplayLocationsComponent implements OnInit {
         this.loadingLocations = false;
       });
   }
-
+//Función que se ejecuta al tocar los botones de cambio de página
   changePage(value: number) {
     this.from += value;
     if (this.from < 0) {
@@ -90,7 +90,7 @@ export class DisplayLocationsComponent implements OnInit {
     this.loadLocations(value);
   }
 
-
+//Función del search cada que se teclea en el input
   search() {
     if (this.searchtxt?.nativeElement.value.length === 0) {
       this.locations = this.locationsTemp;
@@ -100,6 +100,4 @@ export class DisplayLocationsComponent implements OnInit {
     return;
   }
 
-  goToLocation(episodeUrl: string) {
-  }
 }

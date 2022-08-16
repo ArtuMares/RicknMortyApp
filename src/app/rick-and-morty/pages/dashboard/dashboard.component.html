@@ -27,13 +27,11 @@
         Loading, please wait... <mat-icon>watch_later</mat-icon>
       </div>
     </mat-card>
-
     <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" *ngIf="!loadingCharacters">
       <mat-card class="standard-card mt30" *ngFor="let character of mainCharacters">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title><b>{{character.name}}</b>
-            <!-- <b class="pointer" (onclick)="goToCharacter(character.url)">{{character.name}}</b> -->
           </mat-card-title>
           <mat-card-subtitle><b>{{character.species}}</b></mat-card-subtitle>
         </mat-card-header>
@@ -42,8 +40,6 @@
           Gender: <b>{{character.gender}}</b><br>
           Origin: <b>{{character.origin.name}}</b><br>
           Last known location: <b>{{character.location.name}}</b><br>
-            <!-- <b class="pointer"
-            (onclick)="goToCharacter(character.location.url)">{{character.location.name}}</b> -->
         </mat-card-content>
       </mat-card>
     </div>
@@ -71,22 +67,21 @@
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title><b>{{location.name}}</b>
-            <!-- <b class="pointer" (onclick)="goToLocation(location.url)">{{location.name}}</b> -->
           </mat-card-title>
           <mat-card-subtitle><b>{{location.type}}</b></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           Residents: <span *ngFor="let resident of location.residents; let i = index"> <b>{{residentsNames[j][i]}}. </b>  </span>
-              <!-- <b class="pointer"
-              (onclick)="goToCharacter(resident)">{{residentsNames[j][i]}}</b> -->
         </mat-card-content>
       </mat-card>
     </div>
   </mat-card-content>
 </mat-card>
+
 <!--  -->
-<!-- last episodes -->
+<!-- latest episodes -->
 <!--  -->
+
 <mat-card class="mt10">
   <mat-card-title>Latest episodes</mat-card-title>
   <mat-card-subtitle>The five latest episodes</mat-card-subtitle>
@@ -104,14 +99,11 @@
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title><b>{{episode.name}}</b></mat-card-title>
-          <!-- <b class="pointer" (onclick)="goToEpisode(episode.url)">{{episode.name}}</b> -->
           <mat-card-subtitle><b>{{episode.episode}}</b></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           Air Date: <b>{{episode.air_date}}</b><br>
           characters: <span *ngFor="let character of episode.characters; let i = index"> <b>{{episodeCharacterNames[j][i]}}</b>. </span>
-              <!-- <b class="pointer"
-              (onclick)="goToCharacter(character)">{{episodeCharacterNames[j][i]}}</b> -->
         </mat-card-content>
       </mat-card>
     </div>

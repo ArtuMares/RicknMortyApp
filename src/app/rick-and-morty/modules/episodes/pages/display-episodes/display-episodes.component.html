@@ -30,7 +30,7 @@
             </div>
         </mat-card>
         
-        <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="space-around stretch" *ngIf="!loadingEpisodes">
+        <div class="gridContainer"  *ngIf="!loadingEpisodes">
             <mat-card class="standard-card mt30" *ngFor="let episode of episodes">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
