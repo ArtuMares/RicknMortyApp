@@ -35,4 +35,7 @@ export class CharactersService {
    getCharactersByName(name:string){
       return this.http.get<Character>(`${base_url}/character/?name=${name}`);
    }
+   getCharacterPorId(id:number){
+      return this.http.get<CharacterResult>(`${base_url}/character/${id}`);
+   }
 }

@@ -22,6 +22,20 @@ export class EpisodesService {
       )
   }
 
+  getEpisodeById(id:string): Observable<EpisodesResult>{
+    return this.http.get<EpisodesResult>(`${base_url}/episode/${id}`);
+ }
+
+  getEpisodeNameById(id:string){
+    return this.http.get<EpisodesResult>(`${base_url}/episode/${id}`)
+    .pipe(
+      map(episode =>{
+        return episode.name;
+      })
+      );
+ }
+
+
   getLatestEpisodes() {
     return this.http.get<Episodes>(`${base_url}/episode`)
       .pipe(

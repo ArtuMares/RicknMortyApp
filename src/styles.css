@@ -6,6 +6,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .container{margin: 10px;}
 
+.container30{margin: 30px;}
+
 .mt10{
     margin-top: 10px;
 }
@@ -17,6 +19,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .standard-card{
     max-width: 250px;
+}.viewImage{
+    max-width: 300px;
+    margin: auto !important ;
 }
 .gridContainer{
     display: grid;

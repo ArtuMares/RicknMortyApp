@@ -6,9 +6,12 @@ import { DisplayEpisodesComponent } from './pages/display-episodes/display-episo
 import { MaterialModule } from '../../../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { ViewEpisodeComponent } from './pages/view-episode/view-episode.component';
+import { EpisodesCardComponent } from './components/episodes-card/episodes-card.component';
+
 
 @NgModule({
-  declarations: [DisplayEpisodesComponent],
+  declarations: [DisplayEpisodesComponent , ViewEpisodeComponent, EpisodesCardComponent],
   imports: [
     CommonModule,
     EpisodesRoutingModule,

@@ -22,10 +22,13 @@ export class LocationsService {
     return this.http.get<Location>(`${base_url}/location`);
    }
 
-   getPaginatedLocations(url:string ){
+   getPaginatedLocations(url:string ): Observable<Location>{
     return this.http.get<Location>(url);
    }
-   getLocationsByName(name:string){
+   getLocationsByName(name:string): Observable<Location>{
       return this.http.get<Location>(`${base_url}/location/?name=${name}`);
+   }
+   getLocationsByID(id:string): Observable<LocationResult>{
+    return this.http.get<LocationResult>(`${base_url}/location/${id}`);
    }
 }

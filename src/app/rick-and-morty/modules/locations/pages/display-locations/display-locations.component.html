@@ -21,6 +21,7 @@
     <mat-card-title *ngIf="!(locations.length > 0) ">No episodes found with name <b>"{{searchLocation.value}}"</b>
     </mat-card-title>
     <mat-card-content class="">
+
         <div class="mt10 mb10" fxLayout="row">
             <button class="allignButton" [disabled]="!locationsInfo?.prev || !(locations.length > 0)" mat-raised-button
                 color="primary" (click)="changePage(-20)">
@@ -30,6 +31,7 @@
             <button class="allignButton" [disabled]="!locationsInfo?.next || !(locations.length > 0)" mat-raised-button
                 color="primary" (click)="changePage(20)">Next <mat-icon>navigate_next</mat-icon></button>
         </div>
+
         <mat-divider></mat-divider>
         <mat-card class="loading mt10" *ngIf="loadingLocations">
             <div class="allign-text ">
@@ -37,20 +39,16 @@
             </div>
         </mat-card>
 
+        <!--  -->
+        <!-- ngFor de las cards a mostrar -->
+        <!--  -->
         <div class="gridContainer" *ngIf="!loadingLocations">
             <mat-card class="standard-card mt30" *ngFor="let location of locations">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title><b>{{location.name}}</b>
-                        <!-- <b class="pointer" (onclick)="goToEpisode(episode.url)">{{episode.name}}</b> -->
-                    </mat-card-title>
-                    <mat-card-subtitle><b>{{location.type}}</b></mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                    Dimension: <b>{{location.dimension}}</b>
-                </mat-card-content>
+                <app-locations-card [Location]=location></app-locations-card>
             </mat-card>
         </div>
+
+
     </mat-card-content>
     <mat-card-actions>
         <mat-divider class="mt10"></mat-divider>
