@@ -7,16 +7,17 @@ import { MaterialModule } from '../../../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ViewEpisodeComponent } from './pages/view-episode/view-episode.component';
-import { EpisodesCardComponent } from './components/episodes-card/episodes-card.component';
+import { RickAndMortyModule } from '../../rick-and-morty.module';
 
 
 @NgModule({
-  declarations: [DisplayEpisodesComponent , ViewEpisodeComponent, EpisodesCardComponent],
+  declarations: [DisplayEpisodesComponent , ViewEpisodeComponent],
   imports: [
     CommonModule,
     EpisodesRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RickAndMortyModule
   ]
 })
 export class EpisodesModule { }

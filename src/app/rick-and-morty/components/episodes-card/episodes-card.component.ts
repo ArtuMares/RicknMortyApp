@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EpisodesResult, Episodes } from '../../../../../interfaces/episodes';
 import { Router } from '@angular/router';
+import { EpisodesResult } from 'src/app/interfaces/episodes';
 
 @Component({
   selector: 'app-episodes-card',

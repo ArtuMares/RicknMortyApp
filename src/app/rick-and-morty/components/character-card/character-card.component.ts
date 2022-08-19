@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
-import { Character, CharacterResult } from '../../../../../interfaces/character';
+import { CharacterResult } from 'src/app/interfaces/character';
 
 @Component({
   selector: 'app-character-card',

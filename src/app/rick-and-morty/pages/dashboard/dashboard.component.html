@@ -12,7 +12,6 @@
     split their time between domestic life and interdimensional adventures.
   </mat-card-content>
 </mat-card>
-
 <!--  -->
 <!-- Main characters -->
 <!--  -->
@@ -26,29 +25,16 @@
         Loading, please wait... <mat-icon>watch_later</mat-icon>
       </div>
     </mat-card>
-    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" *ngIf="!loadingCharacters">
+    <div class="gridContainer" *ngIf="!loadingCharacters">
       <mat-card class="standard-card mt30" *ngFor="let character of mainCharacters">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title><b>{{character.name}}</b>
-          </mat-card-title>
-          <mat-card-subtitle><b>{{character.species}}</b></mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="character.image" alt="Photo of the character">
-        <mat-card-content>
-          Gender: <b>{{character.gender}}</b><br>
-          Origin: <b>{{character.origin.name}}</b><br>
-          Last known location: <b>{{character.location.name}}</b><br>
-        </mat-card-content>
+        <app-character-card [Character]=character></app-character-card>
       </mat-card>
     </div>
   </mat-card-content>
 </mat-card>
-
 <!--  -->
 <!-- Main locations -->
 <!--  -->
-
 <mat-card class="mt10">
   <mat-card-title>Main locations</mat-card-title>
   <mat-card-subtitle>The five most important locations</mat-card-subtitle>
@@ -59,51 +45,29 @@
         Loading, please wait... <mat-icon>watch_later</mat-icon>
       </div>
     </mat-card>
-
-
-    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" *ngIf="!loadingLocations">
-      <mat-card class="standard-card mt30" *ngFor="let location of mainLocations; let j = index">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title><b>{{location.name}}</b>
-          </mat-card-title>
-          <mat-card-subtitle><b>{{location.type}}</b></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          Residents: <span *ngFor="let resident of location.residents; let i = index"> <b>{{residentsNames[j][i]}}. </b>  </span>
-        </mat-card-content>
+    <div class="gridContainer" *ngIf="!loadingLocations">
+      <mat-card class="standard-card mt30" *ngFor="let location of mainLocations">
+        <app-locations-card [Location]=location></app-locations-card>
       </mat-card>
     </div>
   </mat-card-content>
 </mat-card>
-
 <!--  -->
 <!-- latest episodes -->
 <!--  -->
-
 <mat-card class="mt10">
   <mat-card-title>Latest episodes</mat-card-title>
   <mat-card-subtitle>The five latest episodes</mat-card-subtitle>
   <mat-card-content>
-
     <mat-divider></mat-divider>
-
     <mat-card class="loading mt10" *ngIf="loadingEpisodes">
       <div class="allign-text ">
         Loading, please wait... <mat-icon>watch_later</mat-icon>
       </div>
     </mat-card>
-    <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" *ngIf="!loadingEpisodes">
-      <mat-card class="standard-card mt30" *ngFor="let episode of latestEpisodes; let j= index">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title><b>{{episode.name}}</b></mat-card-title>
-          <mat-card-subtitle><b>{{episode.episode}}</b></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          Air Date: <b>{{episode.air_date}}</b><br>
-          characters: <span *ngFor="let character of episode.characters; let i = index"> <b>{{episodeCharacterNames[j][i]}}</b>. </span>
-        </mat-card-content>
+    <div class="gridContainer" *ngIf="!loadingEpisodes">
+      <mat-card *ngFor="let episode of latestEpisodes" class="standard-card mt30">
+        <app-episodes-card [Episode]="episode"></app-episodes-card>
       </mat-card>
     </div>
   </mat-card-content>

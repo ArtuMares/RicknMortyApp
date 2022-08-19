@@ -6,7 +6,9 @@ import { MainComponent } from './pages/main/main.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ResidentUrlPipe } from './pipes/resident-url.pipe';
+import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { EpisodesCardComponent } from './components/episodes-card/episodes-card.component';
+import { LocationsCardComponent } from './components/locations-card/locations-card.component';
 
 
 
@@ -14,13 +16,19 @@ import { ResidentUrlPipe } from './pipes/resident-url.pipe';
   declarations: [
     MainComponent,
     DashboardComponent,
-    ResidentUrlPipe
+    CharacterCardComponent,
+    EpisodesCardComponent,
+    LocationsCardComponent
    ],
   imports: [
     CommonModule,
     RickAndMortyRoutingModule,
     MaterialModule,
     FlexLayoutModule
+  ], exports:[
+    CharacterCardComponent,
+    EpisodesCardComponent,
+    LocationsCardComponent
   ]
 })
 export class RickAndMortyModule { }

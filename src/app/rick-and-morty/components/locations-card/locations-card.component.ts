@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LocationResult } from '../../../../../interfaces/location';
 import { Router } from '@angular/router';
+import { LocationResult } from 'src/app/interfaces/location';
 
 @Component({
   selector: 'app-locations-card',

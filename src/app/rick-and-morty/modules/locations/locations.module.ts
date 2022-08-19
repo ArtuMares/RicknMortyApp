@@ -6,20 +6,21 @@ import { DisplayLocationsComponent } from './pages/display-locations/display-loc
 import { MaterialModule } from '../../../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ViewLocationComponent } from './pages/view-location/view-location.component';
-import { LocationsCardComponent } from './components/locations-card/locations-card.component';
+import { RickAndMortyModule } from '../../rick-and-morty.module';
 
 
 @NgModule({
   declarations: [
     DisplayLocationsComponent,
-    ViewLocationComponent,
-    LocationsCardComponent
+    ViewLocationComponent
   ],
   imports: [
     CommonModule,
     LocationsRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RickAndMortyModule
+  ],exports:[
   ]
 })
 export class LocationsModule { }
