@@ -14,6 +14,7 @@ export class ViewEpisodeComponent implements OnInit {
   public episode?: EpisodesResult;
   public episodeCharactersID?: string;
   public episodeCharacterNames: string[] = [];
+  public loadingEpisodes:boolean =true;
 
   constructor(private ar: ActivatedRoute, private cs: CharactersService, private router: Router, private es: EpisodesService) { }
 
@@ -23,7 +24,6 @@ export class ViewEpisodeComponent implements OnInit {
       switchMap(({ id }) => this.es.getEpisodeById(id))
     ).subscribe(episode => {
       this.episode = episode;
-
       episode.characters.forEach((character, i) => {
         this.cs.getCharacterName(character)
           .subscribe(name => {
@@ -31,6 +31,7 @@ export class ViewEpisodeComponent implements OnInit {
           }
           )
       });
+      this.loadingEpisodes = false;
     });
   }
 

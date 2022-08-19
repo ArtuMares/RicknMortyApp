@@ -13,6 +13,7 @@ import { LocationResult } from 'src/app/interfaces/location';
 export class ViewLocationComponent implements OnInit {
   public location?: LocationResult;
   public ResidentsNames: string[]=[];
+  public loadingLocations:boolean = true;
 
   constructor(private ar: ActivatedRoute, private ls: LocationsService, private router: Router, private cs: CharactersService) { }
 
@@ -28,8 +29,7 @@ export class ViewLocationComponent implements OnInit {
             this.ResidentsNames![i] = name;
           } );
       })
-      console.log(this.ResidentsNames);
-      
+      this.loadingLocations= false
     });
   } 
 

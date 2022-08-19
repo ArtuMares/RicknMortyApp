@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Episodes, EpisodesResult } from '../../interfaces/episodes';
 
 const base_url = environment.base_url;
@@ -23,7 +23,12 @@ export class EpisodesService {
   }
 
   getEpisodeById(id:string): Observable<EpisodesResult>{
-    return this.http.get<EpisodesResult>(`${base_url}/episode/${id}`);
+    return this.http.get<EpisodesResult>(`${base_url}/episode/${id}`)
+    .pipe(
+      tap(resp =>{
+        resp.characters = resp.characters.slice(0,19);
+      })
+    );;
  }
 
   getEpisodeNameById(id:string){

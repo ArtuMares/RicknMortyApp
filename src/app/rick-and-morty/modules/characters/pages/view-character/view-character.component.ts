@@ -15,6 +15,7 @@ export class ViewCharacterComponent implements OnInit {
   public character?: CharacterResult;
   public firstEpisodeID?:string;
   public firstEpisodeName?:string;
+  public loadingCharacters: boolean = true;
 
   constructor(private ar: ActivatedRoute, private cs: CharactersService, private router: Router, private es:EpisodesService) { }
 
@@ -30,6 +31,7 @@ export class ViewCharacterComponent implements OnInit {
           this.firstEpisodeName = name;
         }
       );
+      this.loadingCharacters = false;
     });
   }
 

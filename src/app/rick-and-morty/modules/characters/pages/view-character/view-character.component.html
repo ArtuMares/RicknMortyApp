@@ -1,6 +1,11 @@
 <h1>Character</h1>
 <mat-divider></mat-divider>
-<div class="gridContainer">
+<mat-card class="loading mt10 " *ngIf="loadingCharacters">
+    <div class="allign-text ">
+      Loading, please wait... <mat-icon>watch_later</mat-icon>
+    </div>
+  </mat-card>
+<div class="gridContainer" *ngIf="!loadingCharacters">
     <mat-card class="container30">
         <mat-card-title>{{character?.name}}</mat-card-title>
         <mat-card-subtitle>{{character?.species}} - {{character?.status}}</mat-card-subtitle>

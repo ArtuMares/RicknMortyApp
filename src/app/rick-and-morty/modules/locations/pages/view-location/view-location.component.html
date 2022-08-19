@@ -1,5 +1,10 @@
 <h1>Location</h1>
 <mat-divider></mat-divider>
+<mat-card class="loading mt10" *ngIf="loadingLocations">
+    <div class="allign-text ">
+        Loading, please wait... <mat-icon>watch_later</mat-icon>
+    </div>
+</mat-card>
 <div class="gridContainer">
     <mat-card class="container30">
         <mat-card-title>{{location?.name}}</mat-card-title>

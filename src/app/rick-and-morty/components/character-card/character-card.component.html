@@ -7,7 +7,6 @@
     <img mat-card-image [src]="character.image" alt="Photo of the character">
     <mat-card-content>
         Gender: <b>{{character.gender}}</b><br>
-        Origin: <b >{{character.origin.name}}</b><br>
-        <!-- class="pointer" (click)="goToOrigin(character?.location!.url)" -->
-        Last known location: <b>{{character.location.name}}</b><br>
+        Origin: <b class="pointer" (click)="goToLocation(character.origin!.url)">{{character.origin.name}}</b><br>
+        Last known location: <b class="pointer" (click)="goToLocation(character.location!.url)">{{character.location.name}}</b><br>
     </mat-card-content>
